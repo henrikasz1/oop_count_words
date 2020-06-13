@@ -20,6 +20,7 @@ Suskaičiuokite, kiek kartų kiekvienas skirtingas žodis pasikartoja Jūsų tek
 
 # Kodo analizė
 
+* Sukuriami du std::map konteineriai, vienas žodžio informacijai saugoti, kitas url adresams saugoti
 ```c++
   //string will contain words, pair will contain int for counting the frequency of usage of that word and set will be saving
   //the line numbers in which that word is
