@@ -1,5 +1,5 @@
 # OOP papildoma užduotis
-#Asociatyvių konteinerių naudojimas
+# Asociatyvių konteinerių naudojimas
 ------------------------
 
 # Užduoties formuluotė
