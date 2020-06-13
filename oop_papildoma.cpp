@@ -6,6 +6,7 @@
 #include <regex>
 #include <exception>
 #include <iomanip>
+#include <sstream>
 
 
 void read_and_find (std::map<std::string, std::pair<int, std::set<int>>> &wordMap, std::map<std::string, int> &link);
