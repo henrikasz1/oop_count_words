@@ -19,3 +19,10 @@ Suskaičiuokite, kiek kartų kiekvienas skirtingas žodis pasikartoja Jūsų tek
 * std::map -> saugoti žodžio informaciją (žodis yra konteinerio raktas)
 
 # Kodo analizė
+
+```c++
+  //string will contain words, pair will contain int for counting the frequency of usage of that word and set will be saving
+  //the line numbers in which that word is
+  std::map<std::string, std::pair<int, std::set<int>>> wordMap;
+
+  std::map<std::string, int>link;
