@@ -27,3 +27,15 @@ Suskaičiuokite, kiek kartų kiekvienas skirtingas žodis pasikartoja Jūsų tek
   std::map<std::string, std::pair<int, std::set<int>>> wordMap;
 
   std::map<std::string, int>link;
+```
+* Kiekvieną eilutę nuskaitau su getline, bei transformuoju tekstą į mažąsias raides
+```c++
+  while(std::getline(in, line))
+  {
+    //transforming all letters into lower case
+    std::transform(line.begin(), line.end(), line.begin(), ::tolower);
+    //reading text
+    std::stringstream read(line);
+    std::string word;
+    .......
+```
