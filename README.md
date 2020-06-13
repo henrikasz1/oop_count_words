@@ -18,7 +18,7 @@ Suskaičiuokite, kiek kartų kiekvienas skirtingas žodis pasikartoja Jūsų tek
 * std::set -> naudojamo žodžio vietoms rasti 
 * std::map -> saugoti žodžio informaciją (žodis yra konteinerio raktas)
 
-# Kodo analizė
+# Abstrakti kodo analizė
 
 * Sukuriami du std::map konteineriai, vienas žodžio informacijai saugoti, kitas url adresams saugoti
 ```c++
@@ -38,4 +38,39 @@ Suskaičiuokite, kiek kartų kiekvienas skirtingas žodis pasikartoja Jūsų tek
     std::stringstream read(line);
     std::string word;
     .......
+```
+* Šiame cikle (while(read >> word)) nuskaitau tekstą po žodį
+* Naudojant std::regex randama tekste esantys URL adresai
+* Ištrinami visi skyrybos ženklai (su erase ir std::remove_if)
+* Į std::map (wordMap) įterpiamas žodis kaip first, kiek kartų žodis pasikartoja - second.first, kuriose eilutėse žodis naudojamas - second.second
+```c++
+  while(std::getline(in, line))
+  {
+    //transforming all letters into lower case
+    std::transform(line.begin(), line.end(), line.begin(), ::tolower);
+    //reading text
+    std::stringstream read(line);
+    std::string word;
+
+    while(read >> word)
+    {
+
+      //finding urls
+      if(std::regex_match(word, std::regex("[(http(s)?):\\/\\/(www\\.)?a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)")))
+      {
+        link.insert(std::pair<std::string, int>(word, numLine));
+      }
+      //erasing all the punctuation
+      word.erase(std::remove_if(word.begin(), word.end(), ::ispunct), word.end());
+
+      auto a = wordMap.insert({word, {0, std::set<int>()}});//insert works only if the map's key has a different value
+
+      auto &it = a.first;
+
+      it->second.first++;
+      it->second.second.insert(numLine);
+
+    }
+    numLine++; //
+  }
 ```
