@@ -18,3 +18,4 @@ Suskaičiuokite, kiek kartų kiekvienas skirtingas žodis pasikartoja Jūsų tek
 * std::set -> naudojamo žodžio vietoms rasti 
 * std::map -> saugoti žodžio informaciją (žodis yra konteinerio raktas)
 
+# Kodo analizė
